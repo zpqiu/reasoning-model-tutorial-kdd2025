@@ -1,255 +1,270 @@
 @import "{{ site.theme }}";
 
-// 自定义颜色变量
+// 现代化设计变量
 :root {
-  --primary-color: #2e7d32;
-  --secondary-color: #76ff03;
-  --accent-color: #ff6f00;
   --nvidia-green: #76b900;
-  --dark-green: #1b5e20;
-  --light-gray: #f5f5f5;
-  --dark-gray: #333;
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --nvidia-dark: #1a4d00;
+  --toronto-blue: #003366;
+  --accent-orange: #ff6f00;
+  --modern-gray: #f8f9fa;
+  --dark-text: #2c3e50;
+  --light-text: #6c757d;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --border-radius: 8px;
 }
 
-// 页面头部美化
+// 字体导入
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+// 全局样式重置
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-text);
+  background: var(--modern-gray);
+}
+
+// 页面头部 - 多伦多天际线灵感
 .page-header {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-green) 100%);
-  padding: 3rem 0;
+  background: linear-gradient(135deg, var(--toronto-blue) 0%, var(--nvidia-dark) 70%, var(--nvidia-green) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ffffff" opacity="0.05" width="1200" height="600"/><polygon fill="%23ffffff" opacity="0.1" points="200,600 300,400 400,500 500,300 600,450 700,250 800,400 900,200 1000,350 1100,150 1200,300 1200,600"/></svg>') no-repeat center;
+    background-size: cover;
+  }
   
   .project-name {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    
+    .emoji {
+      font-size: 1.2em;
+    }
   }
   
   .project-tagline {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 300;
-    max-width: 800px;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+    max-width: 900px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+    text-align: center;
   }
 }
 
 // 主要内容区域
 .main-content {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 2rem 1rem;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  margin-top: -2rem;
+  position: relative;
+  z-index: 3;
   
-  h1, h2, h3, h4, h5, h6 {
-    color: var(--dark-gray);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 0.5rem;
-    margin-top: 2rem;
+  // 现代化标题样式
+  h1, h2 {
+    color: var(--dark-text);
+    font-weight: 600;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--nvidia-green), var(--accent-orange));
+      border-radius: 2px;
+    }
   }
   
   h1 {
     font-size: 2.5rem;
-    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
   
   h2 {
     font-size: 2rem;
-    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  h3 {
+    color: var(--dark-text);
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 }
 
-// 卡片样式
-.card {
+// 现代化卡片组件
+.modern-card {
   background: white;
-  border-radius: 15px;
+  border-radius: var(--border-radius);
   padding: 2rem;
   margin: 2rem 0;
-  box-shadow: 0 10px 30px var(--shadow-color);
-  border-left: 5px solid var(--nvidia-green);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--card-shadow);
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px var(--shadow-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
   }
 }
 
-// 特色区域
-.hero-section {
-  background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
-  padding: 3rem 2rem;
-  border-radius: 20px;
-  margin: 2rem 0;
-  text-align: center;
-  
-  .hero-title {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-weight: 700;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.3rem;
-    color: var(--dark-gray);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-}
-
-// 日期和地点信息
+// 事件信息样式
 .event-info {
-  background: var(--nvidia-green);
+  background: linear-gradient(135deg, var(--nvidia-green), var(--toronto-blue));
   color: white;
-  padding: 1.5rem;
-  border-radius: 15px;
-  text-align: center;
+  padding: 2rem;
+  border-radius: var(--border-radius);
   margin: 2rem 0;
-  font-size: 1.1rem;
-  font-weight: 600;
+  text-align: center;
   
-  .event-date {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .event-location {
-    opacity: 0.9;
+  .event-detail {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
   }
 }
 
-// 教程大纲样式
-.tutorial-outline {
-  .outline-item {
-    background: white;
-    border: 2px solid var(--light-gray);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin: 1rem 0;
-    transition: all 0.3s ease;
-    
-    &:hover {
-      border-color: var(--nvidia-green);
-      background: #f8f9fa;
-    }
-    
-    .item-title {
-      color: var(--primary-color);
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    
-    .item-duration {
-      color: var(--accent-color);
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-  }
-}
-
-// 讲师信息
+// 导师网格布局
 .instructor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin: 2rem 0;
-  
-  .instructor-card {
-    background: white;
-    border-radius: 15px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 5px 20px var(--shadow-color);
-    transition: transform 0.3s ease;
-    
-    &:hover {
-      transform: translateY(-5px);
-    }
-    
-    .instructor-name {
-      color: var(--primary-color);
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    
-    .instructor-title {
-      color: var(--nvidia-green);
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    
-    .instructor-bio {
-      color: var(--dark-gray);
-      line-height: 1.6;
-    }
-  }
 }
 
-// 资源列表
-.resource-list {
-  background: var(--light-gray);
-  border-radius: 15px;
+.instructor-card {
+  background: white;
+  border-radius: var(--border-radius);
   padding: 2rem;
+  box-shadow: var(--card-shadow);
+  border-left: 4px solid var(--nvidia-green);
+  transition: transform 0.2s ease;
   
-  ul {
-    list-style: none;
-    padding: 0;
-    
-    li {
-      background: white;
-      margin: 0.5rem 0;
-      padding: 1rem;
-      border-radius: 8px;
-      border-left: 4px solid var(--secondary-color);
-      
-      &:before {
-        content: "✓";
-        color: var(--nvidia-green);
-        font-weight: bold;
-        margin-right: 0.5rem;
-      }
-    }
+  &:hover {
+    transform: translateY(-3px);
   }
-}
-
-// 品牌标识区域
-.brand-section {
-  text-align: center;
-  padding: 2rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
-  border-radius: 15px;
-  margin: 2rem 0;
   
-  .brand-text {
+  .instructor-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 0.5rem;
+  }
+  
+  .instructor-title {
+    color: var(--nvidia-green);
+    font-weight: 500;
+    margin-bottom: 1rem;
     font-size: 1.1rem;
-    color: var(--dark-gray);
-    
-    .nvidia-text {
-      color: var(--nvidia-green);
-      font-weight: 700;
-    }
-    
-    .kdd-text {
-      color: var(--primary-color);
-      font-weight: 700;
-    }
+  }
+  
+  .instructor-bio {
+    color: var(--light-text);
+    line-height: 1.6;
   }
 }
 
-// 徽章样式
+// 大纲样式
+.outline-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.outline-item {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  border-left: 4px solid var(--accent-orange);
+  
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .item-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    flex: 1;
+    margin-right: 1rem;
+  }
+  
+  .item-duration {
+    background: var(--nvidia-green);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  
+  .item-description {
+    color: var(--light-text);
+    line-height: 1.6;
+    margin-top: 1rem;
+  }
+}
+
+// 徽章组件
 .badge {
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 20px;
   font-size: 0.9rem;
-  font-weight: 600;
-  margin: 0.25rem;
+  font-weight: 500;
+  margin: 0.2rem;
   
   &.primary {
-    background: var(--primary-color);
+    background: var(--toronto-blue);
     color: white;
   }
   
@@ -259,71 +274,84 @@
   }
   
   &.accent {
-    background: var(--accent-color);
+    background: var(--accent-orange);
     color: white;
   }
 }
 
+// 学习成果列表
+.outcomes-list {
+  list-style: none;
+  padding: 0;
+  
+  li {
+    background: var(--modern-gray);
+    margin: 0.8rem 0;
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--nvidia-green);
+    
+    &::before {
+      content: '✅';
+      margin-right: 0.8rem;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// 链接样式
+a {
+  color: var(--nvidia-green);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: var(--nvidia-dark);
+    text-decoration: underline;
+  }
+}
+
 // 响应式设计
-@media screen and (max-width: 768px) {
-  .hero-section .hero-title {
-    font-size: 2rem;
+@media (max-width: 768px) {
+  .page-header {
+    padding: 2rem 0;
+  }
+  
+  .main-content {
+    padding: 1.5rem 1rem;
+    margin-top: -1rem;
   }
   
   .instructor-grid {
     grid-template-columns: 1fr;
   }
   
-  .page-header .project-name {
-    font-size: 2rem;
+  .outline-item .item-header {
+    flex-direction: column;
+    
+    .item-duration {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
   }
+}
+
+// 页脚样式
+.footer-info {
+  text-align: center;
+  padding: 2rem 0;
+  background: var(--modern-gray);
+  color: var(--light-text);
+  font-size: 0.9rem;
   
-  .main-content {
-    padding: 1rem;
-  }
-}
-
-// 动画效果
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-// 链接样式
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-  
-  &:hover {
+  .nvidia-text {
     color: var(--nvidia-green);
-    text-decoration: underline;
+    font-weight: 600;
   }
-}
-
-// 代码块样式
-pre {
-  background: var(--dark-gray);
-  color: var(--secondary-color);
-  border-radius: 10px;
-  padding: 1.5rem;
-  overflow-x: auto;
-}
-
-code {
-  background: var(--light-gray);
-  color: var(--dark-gray);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  
+  .kdd-text {
+    color: var(--toronto-blue);
+    font-weight: 600;
+  }
 } 

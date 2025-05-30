@@ -1,5 +1,5 @@
-title: "Reasoning Model Tutorial | KDD 2025"
-description: "KDD 2025 Tutorial: Practical Guidance on Incentivizing Reasoning in LLMs using Distillation and Reinforcement Learning"
+title: "🧠 Incentivizing Reasoning in LLMs | KDD 2025 Tutorial"
+description: "Learn to build reasoning capabilities in LLMs using knowledge distillation and reinforcement learning. Official KDD 2025 Tutorial by NVIDIA Deep Learning Solution Architects, featuring hands-on labs with DeepSeek-R1, NeMo framework, and practical AI implementation techniques."
 header_text: "🚀 KDD 2025 Reasoning Model Tutorial"
 theme: jekyll-theme-cayman
 
@@ -10,26 +10,46 @@ baseurl: "/reasoning-model-tutorial-kdd2025"
 # Author information
 author:
   name: "NVIDIA Deep Learning Solution Architects"
+  organization: "NVIDIA"
 
 # SEO settings
 google_analytics: 
 lang: en-US
 
+# Event information
+event:
+  name: "KDD 2025"
+  location: "Toronto, Canada"
+  date: "August 3-7, 2025"
+
+# Keywords for SEO
+keywords: 
+  - "reasoning models"
+  - "LLM distillation"
+  - "reinforcement learning"
+  - "NVIDIA NeMo"
+  - "KDD 2025"
+  - "machine learning tutorial"
+  - "AI reasoning"
+  - "DeepSeek-R1"
+
 # Plugins
 plugins:
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Social links
 social:
   website: "https://zpqiu.github.io/reasoning-model-tutorial-kdd2025/"
   kdd: "https://kdd2025.kdd.org/"
+  nvidia: "https://nvidia.github.io/NeMo/"
 
 # Color theme
 colors:
-  primary: "#2e7d32"
-  secondary: "#76ff03"
-  accent: "#ff6f00"
+  nvidia_green: "#76b900"
+  toronto_blue: "#003366"
+  accent_orange: "#ff6f00"
   
 # Markdown settings
 markdown: kramdown
@@ -37,3 +57,6 @@ highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
