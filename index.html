@@ -33,7 +33,7 @@
         }
         
         .page-header {
-            background: linear-gradient(135deg, var(--toronto-blue) 0%, var(--nvidia-dark) 70%, var(--nvidia-green) 100%);
+            background: #1a1a1a;
             position: relative;
             overflow: hidden;
             padding: 4rem 0;
@@ -49,7 +49,18 @@
             bottom: 0;
             background: url('assets/images/KDD25-Hero1-100.jpg') no-repeat center;
             background-size: cover;
-            opacity: 0.3;
+            opacity: 0.95;
+        }
+        
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.5) 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 1;
         }
         
         .project-name {
@@ -407,10 +418,10 @@
     </header>
 
     <div class="main-content">
-        <div class="brand-badges">
+        <!-- <div class="brand-badges">
             <span class="brand-badge nvidia-badge">🚀 NVIDIA Powered</span>
             <span class="brand-badge kdd-badge">🏆 KDD 2025 Official</span>
-        </div>
+        </div> -->
 
         <div class="event-info">
             <div class="event-detail">📅 August 3-7, 2025</div>
