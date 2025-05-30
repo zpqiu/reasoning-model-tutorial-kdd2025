@@ -1,0 +1,329 @@
+@import "{{ site.theme }}";
+
+// 自定义颜色变量
+:root {
+  --primary-color: #2e7d32;
+  --secondary-color: #76ff03;
+  --accent-color: #ff6f00;
+  --nvidia-green: #76b900;
+  --dark-green: #1b5e20;
+  --light-gray: #f5f5f5;
+  --dark-gray: #333;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+// 页面头部美化
+.page-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-green) 100%);
+  padding: 3rem 0;
+  
+  .project-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
+  }
+  
+  .project-tagline {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+// 主要内容区域
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-gray);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+}
+
+// 卡片样式
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border-left: 5px solid var(--nvidia-green);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px var(--shadow-color);
+  }
+}
+
+// 特色区域
+.hero-section {
+  background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  margin: 2rem 0;
+  text-align: center;
+  
+  .hero-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--dark-gray);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+}
+
+// 日期和地点信息
+.event-info {
+  background: var(--nvidia-green);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  
+  .event-date {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-location {
+    opacity: 0.9;
+  }
+}
+
+// 教程大纲样式
+.tutorial-outline {
+  .outline-item {
+    background: white;
+    border: 2px solid var(--light-gray);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      border-color: var(--nvidia-green);
+      background: #f8f9fa;
+    }
+    
+    .item-title {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .item-duration {
+      color: var(--accent-color);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// 讲师信息
+.instructor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  
+  .instructor-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+    
+    .instructor-name {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .instructor-title {
+      color: var(--nvidia-green);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .instructor-bio {
+      color: var(--dark-gray);
+      line-height: 1.6;
+    }
+  }
+}
+
+// 资源列表
+.resource-list {
+  background: var(--light-gray);
+  border-radius: 15px;
+  padding: 2rem;
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      background: white;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--secondary-color);
+      
+      &:before {
+        content: "✓";
+        color: var(--nvidia-green);
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+// 品牌标识区域
+.brand-section {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+  border-radius: 15px;
+  margin: 2rem 0;
+  
+  .brand-text {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    
+    .nvidia-text {
+      color: var(--nvidia-green);
+      font-weight: 700;
+    }
+    
+    .kdd-text {
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+  }
+}
+
+// 徽章样式
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0.25rem;
+  
+  &.primary {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  &.nvidia {
+    background: var(--nvidia-green);
+    color: white;
+  }
+  
+  &.accent {
+    background: var(--accent-color);
+    color: white;
+  }
+}
+
+// 响应式设计
+@media screen and (max-width: 768px) {
+  .hero-section .hero-title {
+    font-size: 2rem;
+  }
+  
+  .instructor-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-header .project-name {
+    font-size: 2rem;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+// 动画效果
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+// 链接样式
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: var(--nvidia-green);
+    text-decoration: underline;
+  }
+}
+
+// 代码块样式
+pre {
+  background: var(--dark-gray);
+  color: var(--secondary-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+code {
+  background: var(--light-gray);
+  color: var(--dark-gray);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+} 

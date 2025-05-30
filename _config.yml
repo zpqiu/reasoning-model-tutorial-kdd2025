@@ -1,4 +1,39 @@
-title: "Reasoning Model Tutorial"
-description: "KDD 2025 Tutorial <br/>"
-header_text: KDD 2025 Tutorial
+title: "Reasoning Model Tutorial | KDD 2025"
+description: "KDD 2025 Tutorial: Practical Guidance on Incentivizing Reasoning in LLMs using Distillation and Reinforcement Learning"
+header_text: "🚀 KDD 2025 Reasoning Model Tutorial"
 theme: jekyll-theme-cayman
+
+# Site information
+url: "https://zpqiu.github.io"
+baseurl: "/reasoning-model-tutorial-kdd2025"
+
+# Author information
+author:
+  name: "NVIDIA Deep Learning Solution Architects"
+
+# SEO settings
+google_analytics: 
+lang: en-US
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Social links
+social:
+  website: "https://zpqiu.github.io/reasoning-model-tutorial-kdd2025/"
+  kdd: "https://kdd2025.kdd.org/"
+
+# Color theme
+colors:
+  primary: "#2e7d32"
+  secondary: "#76ff03"
+  accent: "#ff6f00"
+  
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
